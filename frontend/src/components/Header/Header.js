@@ -5,12 +5,8 @@ import { API_BASE } from '../../api';
 function Header({ userName, onLogout }) {
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      await fetch(`${API_BASE}/logout`, { credentials: 'include' });
-    } catch (e) {
-      // ignore network errors on logout
-    }
+  const handleLogout = () => {
+    fetch(`${API_BASE}/logout`, { credentials: 'include' }).catch(() => {});
     alert('Logged out successfully');
     onLogout();
     navigate('/');
