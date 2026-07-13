@@ -1,0 +1,105 @@
+Job: test-sentiment | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Run actions/setup-python@v5 | Status: completed | Conclusion: success
+  - Run pip install -r requirements.txt | Status: completed | Conclusion: success
+  - Run python -m nltk.downloader vader_lexicon | Status: completed | Conclusion: success
+  - Run pytest -v | Status: completed | Conclusion: success
+  - Post Run actions/setup-python@v5 | Status: completed | Conclusion: success
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: build-and-test-frontend | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Run actions/setup-node@v4 | Status: completed | Conclusion: success
+  - Run npm install | Status: completed | Conclusion: success
+  - Run CI=true npm test -- --watchAll=false | Status: completed | Conclusion: success
+  - Run npm run build | Status: completed | Conclusion: success
+  - Post Run actions/setup-node@v4 | Status: completed | Conclusion: success
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: lint-and-test-django | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Run actions/setup-python@v5 | Status: completed | Conclusion: success
+  - Run pip install -r requirements.txt | Status: completed | Conclusion: success
+  - Run pip install flake8 | Status: completed | Conclusion: success
+  - Run flake8 djangoapp djangoproj --max-line-length=120 | Status: completed | Conclusion: success
+  - Run python manage.py test djangoapp | Status: completed | Conclusion: success
+  - Post Run actions/setup-python@v5 | Status: completed | Conclusion: success
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: lint-and-test-node | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Initialize containers | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Run actions/setup-node@v4 | Status: completed | Conclusion: success
+  - Run npm install | Status: completed | Conclusion: success
+  - Run npx eslint . --ext .js || true | Status: completed | Conclusion: success
+  - Run npm test | Status: completed | Conclusion: success
+  - Post Run actions/setup-node@v4 | Status: completed | Conclusion: success
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Stop containers | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: build-and-push-images (server) | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Check IBM registry secrets | Status: completed | Conclusion: success
+  - Log in to IBM Cloud Container Registry | Status: completed | Conclusion: skipped
+  - Build image | Status: completed | Conclusion: skipped
+  - Push image | Status: completed | Conclusion: skipped
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: build-and-push-images (sentiment_analyzer) | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Check IBM registry secrets | Status: completed | Conclusion: success
+  - Log in to IBM Cloud Container Registry | Status: completed | Conclusion: skipped
+  - Build image | Status: completed | Conclusion: skipped
+  - Push image | Status: completed | Conclusion: skipped
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: build-and-push-images (database) | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Check IBM registry secrets | Status: completed | Conclusion: success
+  - Log in to IBM Cloud Container Registry | Status: completed | Conclusion: skipped
+  - Build image | Status: completed | Conclusion: skipped
+  - Push image | Status: completed | Conclusion: skipped
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: build-and-push-images (frontend) | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Check IBM registry secrets | Status: completed | Conclusion: success
+  - Log in to IBM Cloud Container Registry | Status: completed | Conclusion: skipped
+  - Build image | Status: completed | Conclusion: skipped
+  - Push image | Status: completed | Conclusion: skipped
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job: deploy-to-code-engine | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Check IBM deployment secrets | Status: completed | Conclusion: success
+  - Install IBM Cloud CLI + Code Engine plugin | Status: completed | Conclusion: skipped
+  - Log in to IBM Cloud | Status: completed | Conclusion: skipped
+  - Deploy each service revision | Status: completed | Conclusion: skipped
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success

@@ -4,7 +4,7 @@ import { API_BASE } from '../../api';
 
 const STATES = ['All', 'TX', 'IL', 'CO', 'FL', 'WA'];
 
-function Dealers() {
+function Dealers({ userName }) {
   const [dealers, setDealers] = useState([]);
   const [state, setState] = useState('All');
   const [loading, setLoading] = useState(true);
@@ -46,17 +46,45 @@ function Dealers() {
       {loading && <p>Loading dealers…</p>}
       {error && <p className="error-text">{error}</p>}
 
-      <div className="dealer-list">
-        {dealers.map((dealer) => (
-          <Link key={dealer.id} to={`/dealer/${dealer.id}`} className="card">
-            <h3>{dealer.short_name}</h3>
-            <p>
-              {dealer.street}, {dealer.city}, {dealer.state} {dealer.zip}
-            </p>
-          </Link>
-        ))}
-        {!loading && dealers.length === 0 && !error && <p>No dealers found for this state.</p>}
-      </div>
+      {!loading && !error && dealers.length > 0 && (
+        <table className="dealers-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Dealer Name</th>
+              <th>City</th>
+              <th>Address</th>
+              <th>Zip</th>
+              <th>State</th>
+              {userName && <th>Review Dealer</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {dealers.map((dealer) => (
+              <tr key={dealer.id}>
+                <td>{dealer.id}</td>
+                <td>
+                  <Link to={`/dealer/${dealer.id}`} className="dealer-link">
+                    {dealer.full_name}
+                  </Link>
+                </td>
+                <td>{dealer.city}</td>
+                <td>{dealer.street}</td>
+                <td>{dealer.zip}</td>
+                <td>{dealer.state}</td>
+                {userName && (
+                  <td>
+                    <Link to={`/postreview/${dealer.id}`} className="review-btn">
+                      Review Dealer
+                    </Link>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {!loading && dealers.length === 0 && !error && <p>No dealers found for this state.</p>}
     </div>
   );
 }

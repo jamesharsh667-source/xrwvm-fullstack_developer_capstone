@@ -17,7 +17,12 @@ server {
     }
 
     location /static/ {
-        proxy_pass http://${DJANGO_UPSTREAM}/static/;
+        root /usr/share/nginx/html;
+        try_files $uri @django_static;
+    }
+
+    location @django_static {
+        proxy_pass http://${DJANGO_UPSTREAM};
     }
 
     location / {

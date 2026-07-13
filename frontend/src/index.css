@@ -139,3 +139,56 @@ form select {
   color: #b3261e;
   margin-top: 8px;
 }
+
+/* Dealers Table Styling */
+.dealers-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dealers-table th,
+.dealers-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.dealers-table th {
+  background-color: #f7f9fa;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e2e6ea;
+}
+
+.dealers-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dealer-link {
+  color: #2e6bf2;
+  font-weight: 500;
+}
+
+.dealer-link:hover {
+  text-decoration: underline;
+}
+
+.review-btn {
+  display: inline-block;
+  background-color: #2e6bf2;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.review-btn:hover {
+  background-color: #1e4fc4;
+}
