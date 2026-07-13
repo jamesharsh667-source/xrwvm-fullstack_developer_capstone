@@ -1,16 +1,4 @@
-Job: test-sentiment | Status: completed | Conclusion: success
-Steps:
-  - Set up job | Status: completed | Conclusion: success
-  - Run actions/checkout@v4 | Status: completed | Conclusion: success
-  - Run actions/setup-python@v5 | Status: completed | Conclusion: success
-  - Run pip install -r requirements.txt | Status: completed | Conclusion: success
-  - Run python -m nltk.downloader vader_lexicon | Status: completed | Conclusion: success
-  - Run pytest -v | Status: completed | Conclusion: success
-  - Post Run actions/setup-python@v5 | Status: completed | Conclusion: success
-  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
-  - Complete job | Status: completed | Conclusion: success
-
-Job: build-and-test-frontend | Status: completed | Conclusion: success
+Job ID: 86845757302 | Name: build-and-test-frontend | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
@@ -22,7 +10,7 @@ Steps:
   - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: lint-and-test-django | Status: completed | Conclusion: success
+Job ID: 86845757313 | Name: lint-and-test-django | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
@@ -35,7 +23,19 @@ Steps:
   - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: lint-and-test-node | Status: completed | Conclusion: success
+Job ID: 86845757352 | Name: test-sentiment | Status: completed | Conclusion: success
+Steps:
+  - Set up job | Status: completed | Conclusion: success
+  - Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Run actions/setup-python@v5 | Status: completed | Conclusion: success
+  - Run pip install -r requirements.txt | Status: completed | Conclusion: success
+  - Run python -m nltk.downloader vader_lexicon | Status: completed | Conclusion: success
+  - Run pytest -v | Status: completed | Conclusion: success
+  - Post Run actions/setup-python@v5 | Status: completed | Conclusion: success
+  - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
+  - Complete job | Status: completed | Conclusion: success
+
+Job ID: 86845757424 | Name: lint-and-test-node | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Initialize containers | Status: completed | Conclusion: success
@@ -49,7 +49,7 @@ Steps:
   - Stop containers | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: build-and-push-images (server) | Status: completed | Conclusion: success
+Job ID: 86845927139 | Name: build-and-push-images (frontend) | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
@@ -60,7 +60,7 @@ Steps:
   - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: build-and-push-images (sentiment_analyzer) | Status: completed | Conclusion: success
+Job ID: 86845927144 | Name: build-and-push-images (server) | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
@@ -71,7 +71,7 @@ Steps:
   - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: build-and-push-images (database) | Status: completed | Conclusion: success
+Job ID: 86845927221 | Name: build-and-push-images (sentiment_analyzer) | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
@@ -82,7 +82,7 @@ Steps:
   - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: build-and-push-images (frontend) | Status: completed | Conclusion: success
+Job ID: 86845927313 | Name: build-and-push-images (database) | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
@@ -93,7 +93,7 @@ Steps:
   - Post Run actions/checkout@v4 | Status: completed | Conclusion: success
   - Complete job | Status: completed | Conclusion: success
 
-Job: deploy-to-code-engine | Status: completed | Conclusion: success
+Job ID: 86845962660 | Name: deploy-to-code-engine | Status: completed | Conclusion: success
 Steps:
   - Set up job | Status: completed | Conclusion: success
   - Run actions/checkout@v4 | Status: completed | Conclusion: success
